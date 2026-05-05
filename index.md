@@ -13,7 +13,7 @@
 
 <script>
   var clientId = "69f9643c0487110b56fc8c04" ;
-  var flagname = "course-preview";
+  var flagname = "course-review";
   var user = { anonymous: true };
   var ldclient = window.LDClient.initialize.(clientId, user);
 
