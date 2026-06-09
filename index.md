@@ -164,10 +164,10 @@
     On-site · Hybrid · Remote
   </div>
 
-  <hr class="rule-top">
+<!--  <hr class="rule-top">
   <h1 class="name">Antonio Salazar Gomez</h1>
   <p class="role">DevOps Engineer</p>
-  <hr class="rule-bottom">
+  <hr class="rule-bottom">-->
 
   <p class="skills-line">Customer satisfaction focus | Problem-solving | Teamwork and collaboration | Effective communication</p>
   <p class="skills-line second">CI/CD | Configuration Management | Infrastructure as code | Container Orchestration | Active monitoring | Agile methodology</p>
