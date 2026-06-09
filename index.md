@@ -24,7 +24,7 @@
     line-height:1.55;
   }
   .page{
-    max-width:850px;
+    max-width:1080px;
     margin:32px auto;
     background:var(--bg);
     padding:56px 60px;
