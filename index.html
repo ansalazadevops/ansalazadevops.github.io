@@ -3,37 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antonio Salazar Gomez — DevOps Engineer</title>
-<meta name="description" content="Antonio Salazar Gomez — Principal DevOps Engineer with 25+ years in IT. CI/CD, IaC, container orchestration, cloud (OCI, AWS, Azure).">
+<title>Antonio Salazar Gómez — DevOps Engineer</title>
+<meta name="description" content="Antonio Salazar Gómez — Principal DevOps Engineer with 25+ years in IT. CI/CD, IaC, container orchestration, cloud (OCI, AWS, Azure).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#ffffff;
-    --surface:#f4f7fa;
-    --surface-2:#eaeff5;
-    --ink:#13202f;
-    --muted:#586676;
-    --primary:#15324f;
-    --accent:#0e8aa6;
-    --accent-strong:#0b6f87;
-    --border:#dde4ec;
-    --shadow:0 10px 34px rgba(18,30,45,.10);
+    /* Heraldic palette — Salazar (gules red) · Gómez (azure blue) · shared (or / gold) */
+    --bg:#fffdf8;
+    --surface:#f5efe1;
+    --surface-2:#ebe3d2;
+    --ink:#231c15;
+    --muted:#6e6456;
+    --primary:#9c1b1b;        /* gules — Salazar red (headings, name, company) */
+    --accent:#1a567f;         /* azure — Gómez blue (role, links, UI accents)  */
+    --accent-strong:#13486b;  /* deeper azure                                  */
+    --gold:#b0892b;           /* or — metal shared by both arms (rules, nodes) */
+    --border:#e2dac9;
+    --shadow:0 10px 34px rgba(60,42,20,.12);
     --nav-h:64px;
   }
   [data-theme="dark"]{
-    --bg:#0c1320;
-    --surface:#121b2a;
-    --surface-2:#18243600;
-    --surface-2:#1a2536;
-    --ink:#e8eef6;
-    --muted:#94a3b6;
-    --primary:#86b6df;
-    --accent:#2bd4ee;
-    --accent-strong:#5ee0f5;
-    --border:#26344a;
-    --shadow:0 12px 40px rgba(0,0,0,.45);
+    /* Night heraldry — warm dark ground, brightened tinctures for contrast */
+    --bg:#15110b;
+    --surface:#1f1813;
+    --surface-2:#271d15;
+    --ink:#efe7d7;
+    --muted:#b3a691;
+    --primary:#e2594c;        /* brightened gules for the dark ground */
+    --accent:#57a7d4;         /* brightened azure                    */
+    --accent-strong:#82c0e3;
+    --gold:#d6a94a;           /* brightened or                       */
+    --border:#332619;
+    --shadow:0 12px 40px rgba(0,0,0,.5);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
@@ -74,7 +77,7 @@
     font-weight:700;font-size:17px;color:var(--ink);
     text-decoration:none;letter-spacing:.2px;
   }
-  .brand b{color:var(--accent);}
+  .brand b{color:var(--primary);}
   .nav-links{display:flex;gap:4px;align-items:center;}
   .nav-links a{
     font-family:"JetBrains Mono",monospace;
@@ -100,7 +103,12 @@
   h2.section-h{
     font-family:"Space Grotesk",sans-serif;
     font-size:clamp(24px,4vw,30px);font-weight:700;
-    margin:0 0 28px;color:var(--ink);letter-spacing:-.4px;
+    margin:0 0 28px;color:var(--primary);letter-spacing:-.4px;
+    position:relative;
+  }
+  h2.section-h::after{
+    content:"";display:block;width:54px;height:3px;margin-top:11px;
+    background:var(--gold);border-radius:2px;
   }
 
   /* ---------------- Hero ---------------- */
@@ -109,6 +117,7 @@
     font-family:"Space Grotesk",sans-serif;
     font-size:clamp(34px,7vw,54px);font-weight:700;
     margin:0 0 6px;letter-spacing:-1px;line-height:1.05;
+    color:var(--primary);
   }
   .hero .role{
     font-family:"Space Grotesk",sans-serif;
@@ -145,7 +154,7 @@
   .stat:hover{transform:translateY(-3px);border-color:var(--accent);}
   .stat .num{
     font-family:"Space Grotesk",sans-serif;font-weight:700;
-    font-size:clamp(26px,4.6vw,36px);color:var(--accent);line-height:1;
+    font-size:clamp(26px,4.6vw,36px);color:var(--primary);line-height:1;
   }
   .stat .num .unit{font-size:.55em;color:var(--accent-strong);margin-left:1px;}
   .stat .lbl{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.35;}
@@ -159,7 +168,7 @@
   }
   .filter-btn:hover{color:var(--ink);border-color:var(--accent);}
   .filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
-  [data-theme="dark"] .filter-btn.active{color:#06121b;}
+  [data-theme="dark"] .filter-btn.active{color:#1b1208;}
   .tags{display:flex;flex-wrap:wrap;gap:9px;}
   .tag{
     font-size:13.5px;font-weight:500;
@@ -181,11 +190,11 @@
   .job::before{
     content:"";position:absolute;left:-7px;top:5px;
     width:12px;height:12px;border-radius:50%;
-    background:var(--bg);border:2px solid var(--accent);
+    background:var(--bg);border:2px solid var(--gold);
   }
   .job-head{cursor:pointer;display:flex;justify-content:space-between;gap:14px;align-items:flex-start;}
   .job-head .left{flex:1;}
-  .company{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:17px;color:var(--ink);}
+  .company{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:17px;color:var(--primary);}
   .position{color:var(--accent);font-weight:600;font-size:14.5px;margin-top:1px;}
   .loc{font-size:12.5px;color:var(--muted);margin-top:1px;}
   .dates{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);white-space:nowrap;padding-top:2px;}
@@ -296,21 +305,21 @@
     .job-body{max-height:none !important;opacity:1 !important;margin-top:8px;}
     .stat,.card,.ach-item,.ach,.tag{break-inside:avoid;}
     .reveal{opacity:1 !important;transform:none !important;}
-    a{color:#0b6f87;}
+    a{color:#13486b;}
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#top" class="brand">Antonio Salazar <b>Gomez</b></a>
+  <a href="#top" class="brand">Antonio Salazar <!--<b>Gómez</b>--></a>
   <div style="display:flex;align-items:center;">
     <div class="nav-links" id="navLinks">
-      <a href="#about">about</a>
-      <a href="#skills">skills</a>
-      <a href="#experience">experience</a>
-      <a href="#education">education</a>
-      <a href="#achievements">awards</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#achievements">Awards</a>
     </div>
     <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
     <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
@@ -322,13 +331,13 @@
   <!-- HERO -->
   <header class="hero" id="hero">
     <span class="eyebrow">whoami</span>
-    <h1>Antonio Salazar Gomez</h1>
+    <h1>Antonio Salazar Gómez</h1>
     <p class="role">Principal DevOps Engineer</p>
     <p class="pitch">Blending <b>25+ years of IT</b> with a lifelong love of music. I streamline software delivery, cut cost and time, and keep systems reliable — across CI/CD, infrastructure as code, container orchestration, and cloud.</p>
 
     <div class="contact-row">
       <a class="chip-link" href="mailto:jobs.antonio.salazar@gmail.com">✉ jobs.antonio.salazar@gmail.com</a>
-      <a class="chip-link" href="tel:+523338154216">☏ +52 333 815 4216</a>
+      <!-- <a class="chip-link" href="tel:+523338154216">☏ +52 333 815 4216</a> -->
       <a class="chip-link" href="https://www.linkedin.com/in/antonio-salazar-gomez/" target="_blank" rel="noopener">in · LinkedIn</a>
     </div>
     <div class="availability"><span class="dot"></span> Guadalajara, Mexico — open to On-site · Hybrid · Remote</div>
@@ -484,9 +493,9 @@
     <span class="eyebrow">education</span>
     <h2 class="section-h">Education &amp; Languages</h2>
     <div class="cards">
-      <div class="card"><div class="t">Post Graduate Program in DevOps</div><div class="m">SimpliLearn / Caltech University · 2021 · cert. 3042029</div></div>
+      <div class="card"><div class="t">Post Graduate Program in DevOps</div><div class="m">Caltech University / SimpliLearn · 2021 · <a href="https://success.simplilearn.com/b733c8a6-acd7-4341-8cb1-f28c19836441#acc.96z1LqOs" target="new">cert. 174817574</a></div></div>
       <div class="card"><div class="t">M.Sc. Database Administration</div><div class="m">Universidad de Guadalajara · 2007</div></div>
-      <div class="card"><div class="t">B.Sc. Computer Science</div><div class="m">Universidad del Valle de Atemajac · 1996 · cédula 4761084</div></div>
+      <div class="card"><div class="t">B.Sc. Computer Science</div><div class="m">Universidad del Valle de Atemajac · 1996 · <a href="https://drive.google.com/file/d/1uDbWVS14PzQUYVcuHEYCBCvjRNTGQcZ1/view?usp=drive_link" target="new" hover="front">cédula 4761084</a> · <a href="https://drive.google.com/file/d/1WRMPJcVoKPh9qzcP3MYC-LbDOn8Rx3iT/view?usp=drive_link" target="new"  hover="back"><i>[back]</i></a></div></div>
       <div class="card"><div class="t">Bachelor of Music — Piano</div><div class="m">Universidad de Guadalajara · 1995 · ID IM/EXA/001/13</div></div>
       <div class="card"><div class="t">Languages</div><div class="m">Spanish (native) · English (fluent)</div></div>
     </div>
@@ -509,9 +518,9 @@
   <div class="f-links">
     <a href="mailto:jobs.antonio.salazar@gmail.com">email</a>
     <a href="tel:+523338154216">phone</a>
-    <a href="https://www.linkedin.com/in/antonio-salazar-gomez/" target="_blank" rel="noopener">linkedin</a>
+    <a href="https://www.linkedin.com/in/antonio-salazar-Gómez/" target="_blank" rel="noopener">linkedin</a>
   </div>
-  <div class="small">Antonio Salazar Gomez · DevOps Engineer · Guadalajara, MX</div>
+  <div class="small">Antonio Salazar Gómez · DevOps Engineer · Guadalajara, MX</div>
 </footer>
 
 <button class="fab" id="printBtn" aria-label="Print / Save as PDF" title="Print / Save as PDF">⎙</button>
