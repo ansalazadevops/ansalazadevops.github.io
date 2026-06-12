@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antonio Salazar Gómez — DevOps Engineer</title>
+<meta name="description" content="Antonio Salazar Gómez — Principal DevOps Engineer with 25+ years in IT. CI/CD, IaC, container orchestration, cloud (OCI, AWS, Azure).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Heraldic palette — Salazar (gules red) · Gómez (azure blue) · shared (or / gold) */
+    --bg:#fffdf8;
+    --surface:#f5efe1;
+    --surface-2:#ebe3d2;
+    --ink:#231c15;
+    --muted:#6e6456;
+    --primary:#9c1b1b;        /* gules — Salazar red (headings, name, company) */
+    --accent:#1a567f;         /* azure — Gómez blue (role, links, UI accents)  */
+    --accent-strong:#13486b;  /* deeper azure                                  */
+    --gold:#b0892b;           /* or — metal shared by both arms (rules, nodes) */
+    --border:#e2dac9;
+    --shadow:0 10px 34px rgba(60,42,20,.12);
+    --nav-h:64px;
+  }
+  [data-theme="dark"]{
+    /* Night heraldry — warm dark ground, brightened tinctures for contrast */
+    --bg:#15110b;
+    --surface:#1f1813;
+    --surface-2:#271d15;
+    --ink:#efe7d7;
+    --muted:#b3a691;
+    --primary:#e2594c;        /* brightened gules for the dark ground */
+    --accent:#57a7d4;         /* brightened azure                    */
+    --accent-strong:#82c0e3;
+    --gold:#d6a94a;           /* brightened or                       */
+    --border:#332619;
+    --shadow:0 12px 40px rgba(0,0,0,.5);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:15.5px;
+    line-height:1.65;
+    transition:background .35s ease,color .35s ease;
+  }
+  a{color:var(--accent-strong);text-underline-offset:3px;}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;}
+  .eyebrow{
+    font-family:"JetBrains Mono",monospace;
+    font-size:12.5px;
+    letter-spacing:.5px;
+    color:var(--accent);
+    font-weight:600;
+    display:inline-block;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"// ";opacity:.6;}
+
+  /* ---------------- Nav ---------------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    height:var(--nav-h);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 clamp(18px,5vw,48px);
+    background:color-mix(in srgb,var(--bg) 82%,transparent);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .brand{
+    font-family:"Space Grotesk",sans-serif;
+    font-weight:700;font-size:17px;color:var(--ink);
+    text-decoration:none;letter-spacing:.2px;
+  }
+  .brand b{color:var(--primary);}
+  .nav-links{display:flex;gap:4px;align-items:center;}
+  .nav-links a{
+    font-family:"JetBrains Mono",monospace;
+    font-size:13px;font-weight:500;
+    color:var(--muted);text-decoration:none;
+    padding:7px 11px;border-radius:8px;
+    transition:color .2s,background .2s;
+  }
+  .nav-links a:hover{color:var(--ink);background:var(--surface);}
+  .nav-links a.active{color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);}
+  .theme-btn{
+    margin-left:8px;width:38px;height:38px;
+    border:1px solid var(--border);border-radius:10px;
+    background:var(--surface);color:var(--ink);
+    cursor:pointer;font-size:16px;line-height:1;
+    display:grid;place-items:center;transition:.2s;
+  }
+  .theme-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .menu-btn{display:none;}
+
+  .wrap{max-width:920px;margin:0 auto;padding:0 clamp(20px,5vw,40px);}
+  section{padding:72px 0 16px;scroll-margin-top:calc(var(--nav-h) + 10px);}
+  h2.section-h{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(24px,4vw,30px);font-weight:700;
+    margin:0 0 28px;color:var(--primary);letter-spacing:-.4px;
+    position:relative;
+  }
+  h2.section-h::after{
+    content:"";display:block;width:54px;height:3px;margin-top:11px;
+    background:var(--gold);border-radius:2px;
+  }
+
+  /* ---------------- Hero ---------------- */
+  .hero{padding-top:54px;}
+  .hero h1{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(34px,7vw,54px);font-weight:700;
+    margin:0 0 6px;letter-spacing:-1px;line-height:1.05;
+    color:var(--primary);
+  }
+  .hero .role{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(18px,3.4vw,24px);font-weight:600;
+    color:var(--accent);margin:0 0 18px;
+  }
+  .hero .pitch{font-size:17px;color:var(--muted);max-width:660px;margin:0 0 26px;}
+  .hero .pitch b{color:var(--ink);font-weight:600;}
+  .contact-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px;}
+  .chip-link{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:13.5px;font-weight:500;text-decoration:none;
+    color:var(--ink);background:var(--surface);
+    border:1px solid var(--border);border-radius:999px;
+    padding:8px 15px;transition:.2s;
+  }
+  .chip-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);}
+  .availability{
+    font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);
+    display:flex;align-items:center;gap:8px;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px color-mix(in srgb,#22c55e 22%,transparent);}
+
+  /* ---------------- Stats ---------------- */
+  .stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+    margin-top:38px;
+  }
+  .stat{
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:14px;padding:20px 18px;
+    transition:transform .25s,border-color .25s;
+  }
+  .stat:hover{transform:translateY(-3px);border-color:var(--accent);}
+  .stat .num{
+    font-family:"Space Grotesk",sans-serif;font-weight:700;
+    font-size:clamp(26px,4.6vw,36px);color:var(--primary);line-height:1;
+  }
+  .stat .num .unit{font-size:.55em;color:var(--accent-strong);margin-left:1px;}
+  .stat .lbl{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.35;}
+
+  /* ---------------- Skills ---------------- */
+  .filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+  .filter-btn{
+    font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:500;
+    border:1px solid var(--border);background:transparent;color:var(--muted);
+    border-radius:999px;padding:7px 14px;cursor:pointer;transition:.2s;
+  }
+  .filter-btn:hover{color:var(--ink);border-color:var(--accent);}
+  .filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  [data-theme="dark"] .filter-btn.active{color:#1b1208;}
+  .tags{display:flex;flex-wrap:wrap;gap:9px;}
+  .tag{
+    font-size:13.5px;font-weight:500;
+    background:var(--surface);border:1px solid var(--border);
+    color:var(--ink);border-radius:9px;padding:7px 13px;
+    transition:transform .2s,opacity .25s,filter .25s,background .2s;
+  }
+  .tag:hover{transform:translateY(-2px);background:var(--surface-2);}
+  .tag.dimmed{opacity:.28;filter:grayscale(.6);}
+  .tag .cat{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--accent);display:block;margin-bottom:1px;letter-spacing:.4px;}
+
+  /* ---------------- Timeline / Experience ---------------- */
+  .timeline{position:relative;}
+  .job{
+    position:relative;padding:0 0 8px 30px;margin-bottom:26px;
+    border-left:2px solid var(--border);
+  }
+  .job:last-child{border-left-color:transparent;}
+  .job::before{
+    content:"";position:absolute;left:-7px;top:5px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--gold);
+  }
+  .job-head{cursor:pointer;display:flex;justify-content:space-between;gap:14px;align-items:flex-start;}
+  .job-head .left{flex:1;}
+  .company{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:17px;color:var(--primary);}
+  .position{color:var(--accent);font-weight:600;font-size:14.5px;margin-top:1px;}
+  .loc{font-size:12.5px;color:var(--muted);margin-top:1px;}
+  .dates{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted);white-space:nowrap;padding-top:2px;}
+  .chev{
+    border:none;background:none;color:var(--muted);cursor:pointer;
+    font-size:13px;padding:4px;transition:transform .3s,color .2s;
+  }
+  .job.open .chev{transform:rotate(180deg);color:var(--accent);}
+  .job-body{
+    overflow:hidden;max-height:0;opacity:0;
+    transition:max-height .45s ease,opacity .35s ease,margin .35s ease;
+  }
+  .job.open .job-body{max-height:1600px;opacity:1;margin-top:12px;}
+  .role-goal{font-weight:600;color:var(--ink);margin:0 0 10px;}
+  .lead{font-weight:500;color:var(--muted);margin:0 0 10px;}
+  .job-body ul{margin:0;padding-left:18px;}
+  .job-body li{margin-bottom:8px;color:var(--muted);}
+  .job-body li b{color:var(--ink);font-weight:600;}
+  .ach{
+    margin-top:12px;padding:11px 14px;border-radius:10px;
+    background:var(--surface);border:1px solid var(--border);
+    font-size:13.5px;color:var(--muted);
+  }
+  .ach b{color:var(--accent-strong);}
+  .exp-toggle{
+    font-family:"JetBrains Mono",monospace;font-size:12.5px;
+    background:none;border:1px solid var(--border);color:var(--muted);
+    border-radius:8px;padding:6px 12px;cursor:pointer;margin-bottom:22px;transition:.2s;
+  }
+  .exp-toggle:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* ---------------- Cards (edu / achievements) ---------------- */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .card{
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:13px;padding:17px 18px;transition:transform .25s,border-color .25s;
+  }
+  .card:hover{transform:translateY(-3px);border-color:var(--accent);}
+  .card .t{font-weight:600;color:var(--ink);margin-bottom:4px;}
+  .card .m{font-size:13px;color:var(--muted);}
+  .ach-list{display:grid;gap:12px;}
+  .ach-item{
+    display:flex;gap:13px;background:var(--surface);
+    border:1px solid var(--border);border-radius:13px;padding:16px 18px;
+  }
+  .ach-item .ic{
+    flex:none;width:34px;height:34px;border-radius:9px;
+    background:color-mix(in srgb,var(--accent) 15%,transparent);
+    color:var(--accent);display:grid;place-items:center;font-size:17px;
+  }
+  .ach-item p{margin:0;color:var(--muted);}
+
+  /* ---------------- Footer ---------------- */
+  footer{
+    margin-top:60px;border-top:1px solid var(--border);
+    padding:34px clamp(20px,5vw,40px);text-align:center;color:var(--muted);
+  }
+  footer .f-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;}
+  footer a{font-family:"JetBrains Mono",monospace;font-size:13px;text-decoration:none;color:var(--muted);}
+  footer a:hover{color:var(--accent);}
+  footer .small{font-size:12px;font-family:"JetBrains Mono",monospace;}
+
+  /* ---------------- Floating buttons ---------------- */
+  .fab{
+    position:fixed;right:22px;width:46px;height:46px;border-radius:12px;
+    border:1px solid var(--border);background:var(--surface);color:var(--ink);
+    cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow);
+    transition:.25s;z-index:40;
+  }
+  .fab:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+  #toTop{bottom:22px;opacity:0;pointer-events:none;transform:translateY(10px);}
+  #toTop.show{opacity:1;pointer-events:auto;transform:none;}
+  #printBtn{bottom:78px;}
+
+  /* ---------------- Reveal animation ---------------- */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------------- Responsive ---------------- */
+  @media (max-width:720px){
+    .stats{grid-template-columns:1fr 1fr;}
+    .cards{grid-template-columns:1fr;}
+    .nav-links{
+      position:fixed;inset:var(--nav-h) 0 auto 0;flex-direction:column;align-items:stretch;
+      background:var(--bg);border-bottom:1px solid var(--border);padding:10px clamp(18px,5vw,48px) 16px;
+      gap:2px;transform:translateY(-130%);transition:transform .3s ease;
+    }
+    .nav-links.show{transform:none;}
+    .nav-links a{padding:11px 8px;font-size:14px;}
+    .menu-btn{
+      display:grid;place-items:center;width:38px;height:38px;margin-left:6px;
+      border:1px solid var(--border);border-radius:10px;background:var(--surface);
+      color:var(--ink);cursor:pointer;font-size:18px;
+    }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto !important;}
+    .reveal{transition:none;opacity:1;transform:none;}
+    .job-body{transition:none;}
+  }
+
+  /* ---------------- Print ---------------- */
+  @media print{
+    nav,.fab,.filter-bar,.exp-toggle,.availability,.theme-btn,.menu-btn{display:none !important;}
+    body{font-size:11px;color:#000;background:#fff;}
+    .wrap{max-width:100%;}
+    section{padding:14px 0;}
+    .job-body{max-height:none !important;opacity:1 !important;margin-top:8px;}
+    .stat,.card,.ach-item,.ach,.tag{break-inside:avoid;}
+    .reveal{opacity:1 !important;transform:none !important;}
+    a{color:#13486b;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+<<<<<<< HEAD
+  <a href="#top" class="brand"><img src="img/Salazar-Gomez.jpg"Resume Antonio Salazar Gómez" height="37" width=""><!--- Antonio Salazar <b>Gómez</b>--></a>
+=======
+  <a href="#top" class="brand">Antonio Salazar <!--<b>Gómez</b>--></a>
+>>>>>>> 2da1f3bb3224e5c21519227da24cd5a7e261899a
+  <div style="display:flex;align-items:center;">
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#achievements">Awards</a>
+    </div>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <span class="eyebrow">whoami</span>
+    <h1>Antonio Salazar Gómez</h1>
+    <p class="role">Principal DevOps Engineer</p>
+    <p class="pitch">Blending <b>25+ years of IT</b> with a lifelong love of music. I streamline software delivery, cut cost and time, and keep systems reliable — across CI/CD, infrastructure as code, container orchestration, and cloud.</p>
+
+    <div class="contact-row">
+      <a class="chip-link" href="mailto:jobs.antonio.salazar@gmail.com">✉ jobs.antonio.salazar@gmail.com</a>
+      <!-- <a class="chip-link" href="tel:+523338154216">☏ +52 333 815 4216</a> -->
+      <a class="chip-link" href="https://www.linkedin.com/in/antonio-salazar-gomez/" target="_blank" rel="noopener">in · LinkedIn</a>
+    </div>
+    <div class="availability"><span class="dot"></span> Guadalajara, Mexico — open to On-site · Hybrid · Remote</div>
+
+    <div class="stats">
+      <div class="stat reveal"><div class="num" data-target="25" data-suffix="+">0</div><div class="lbl">Years in IT</div></div>
+      <div class="stat reveal"><div class="num" data-target="40" data-suffix="%">0</div><div class="lbl">Infrastructure cost reduction</div></div>
+      <div class="stat reveal"><div class="num" data-target="20" data-suffix="%">0</div><div class="lbl">Deployment time reduced</div></div>
+      <div class="stat reveal"><div class="num" data-target="99" data-suffix="%">0</div><div class="lbl">Operational availability</div></div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <span class="eyebrow">about</span>
+    <h2 class="section-h">Profile</h2>
+    <p>I am passionate about both computer and piano keyboards, blending IT expertise with a love for music. I prioritize problem-solving, continuous improvement, teamwork, and delivering high-quality service to support organizational goals.</p>
+    <p>My passion for computers inspired me to pursue a degree in Computer Science Engineering. With over 25 years in IT, I have held diverse roles — from Web Developer to Oracle DBA, and now DevOps Engineer, a role I truly enjoy. I focus on streamlining processes, reducing time and costs, and enhancing service quality. In my most recent project at Oracle, I achieved a <b>40% cost reduction</b>, reduced manual task time by <b>20%</b>, and maintained <b>99% operational availability</b>.</p>
+    <p>As a collaborative partner, I value active listening and building long-term trust with colleagues, cross-functional teams, clients, and vendors.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="reveal">
+    <span class="eyebrow">stack</span>
+    <h2 class="section-h">Skills &amp; Tools</h2>
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-cat="all">all</button>
+      <button class="filter-btn" data-cat="devops">DevOps</button>
+      <button class="filter-btn" data-cat="lang">Languages</button>
+      <button class="filter-btn" data-cat="cloud">Cloud</button>
+      <button class="filter-btn" data-cat="oracle">Oracle DB</button>
+      <button class="filter-btn" data-cat="monitor">Monitoring</button>
+    </div>
+    <div class="tags" id="tags">
+      <!-- populated by JS -->
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="reveal">
+    <span class="eyebrow">experience</span>
+    <h2 class="section-h">Work Experience</h2>
+    <button class="exp-toggle" id="expToggle">collapse all</button>
+    <div class="timeline" id="timeline">
+
+      <article class="job open">
+        <div class="job-head">
+          <div class="left">
+            <div class="company">Oracle</div>
+            <div class="position">Principal DevOps Engineer</div>
+            <div class="loc">Guadalajara, Mexico</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span class="dates">2021–2026</span>
+            <button class="chev" aria-label="Toggle details">▼</button>
+          </div>
+        </div>
+        <div class="job-body">
+          <p class="role-goal">Goal: automate, streamline, and stabilize the software delivery lifecycle to make builds faster, releases safer, and maintenance easier.</p>
+          <ul>
+            <li><b>CI/CD Pipelines:</b> Maintained high-performing Jenkins pipelines, consistently met KPIs, ensured code and artifact integration, and proactively supported customers and QA teams in troubleshooting failed jobs.</li>
+            <li><b>Infrastructure (IaC):</b> Helped deploy and manage Big Data clusters on OCI, cutting costs by 40% through efficient provisioning, decommissioning unused resources, and automation with Terraform and Jenkins-driven workflows.</li>
+            <li><b>Automation:</b> Delivered automation including a BASH script that reduced YARN log retrieval time by 15%, and pioneered a containerized Hadoop Edge node plus CI/CD pipelines for Oozie jobs, reducing deployment and execution time by 20%.</li>
+            <li><b>Monitoring &amp; Logging:</b> Implemented a real-time alerting system with Ambari, Prometheus, and Slack, improving cluster availability by 10% and helping prevent failures.</li>
+            <li><b>Security &amp; Compliance (DevSecOps):</b> Kept operations aligned with security policies and worked with security teams to resolve Kerberos and LDAP issues.</li>
+            <li><b>Cross-Team Collaboration:</b> Acted as a liaison across infrastructure, engineering, security, and business teams, resolving complex issues and communicating key updates to stakeholders.</li>
+            <li><b>Deployment &amp; Release Management:</b> Supported code reviews and coordinated deployments of Big Data applications and infrastructure components.</li>
+            <li><b>Reliability &amp; Performance:</b> Maintained 99% cluster uptime through proactive monitoring, SLA-driven incident management, and planned maintenance, while keeping documentation current.</li>
+          </ul>
+          <div class="ach"><b>Achievements:</b> Met CI/CD KPIs, reduced infrastructure costs by 40%, reduced deployment/execution time by 20%, improved availability with alerting, and ensured secure, reliable operations across teams.</div>
+        </div>
+      </article>
+
+      <article class="job open">
+        <div class="job-head">
+          <div class="left">
+            <div class="company">Toshiba Global Commerce Solutions</div>
+            <div class="position">DevOps Engineer</div>
+            <div class="loc">Guadalajara, Mexico</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span class="dates">2021–2022</span>
+            <button class="chev" aria-label="Toggle details">▼</button>
+          </div>
+        </div>
+        <div class="job-body">
+          <p class="lead">Accelerate the software release life cycle and support applications running on Azure infrastructure.</p>
+          <ul>
+            <li>Created virtual working environments for development teams using oVirt.</li>
+            <li>Automated software builds with Jenkins pipelines using Groovy, Python, Ansible, GitLab, BASH, MS Batch scripting, Maven, and Docker.</li>
+            <li>Monitored critical builds and promptly resolved failed processes.</li>
+            <li>Maintained comprehensive documentation of processes, configurations, troubleshooting, architecture, and performance reports.</li>
+            <li>Monitored applications running on Azure Web Services and reported monthly costs.</li>
+          </ul>
+          <div class="ach"><b>Achievements:</b> Maintained optimal operations with 100% build completion, continuous application uptime, and all deployments delivered on schedule.</div>
+        </div>
+      </article>
+
+      <article class="job open">
+        <div class="job-head">
+          <div class="left">
+            <div class="company">Caltech Center for Technology &amp; Management Education</div>
+            <div class="position">Post Graduate Program in DevOps</div>
+            <div class="loc">California, US</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span class="dates">2021–2022</span>
+            <button class="chev" aria-label="Toggle details">▼</button>
+          </div>
+        </div>
+        <div class="job-body">
+          <p class="lead">Capstone — AWS, Kubernetes, CI/CD: designed and deployed a highly available e-commerce infrastructure on AWS using Kubernetes and DevOps automation practices.</p>
+          <ul>
+            <li>Provisioned a highly available AWS environment using EC2, Elastic Load Balancer (ELB), and Elastic IPs.</li>
+            <li>Automated infrastructure provisioning and configuration through Jenkins CI/CD pipelines and Ansible playbooks.</li>
+            <li>Installed and configured Docker and Kubernetes across the cluster.</li>
+            <li>Implemented Kubernetes network policies to secure database access from authorized application pods only.</li>
+            <li>Managed Kubernetes RBAC — created users and assigned permissions for pod lifecycle operations.</li>
+            <li>Deployed containerized applications within Kubernetes pods; created ETCD snapshots for backup and disaster recovery.</li>
+            <li>Configured Kubernetes auto-scaling based on CPU and memory thresholds; monitored health and performance with AWS CloudWatch.</li>
+          </ul>
+          <div class="ach"><b>Achievement:</b> Delivered a production-style, highly available Kubernetes environment meeting all requirements, with documented deployment, security, backup, and operational procedures.</div>
+        </div>
+      </article>
+
+      <article class="job open">
+        <div class="job-head">
+          <div class="left">
+            <div class="company">Oracle</div>
+            <div class="position">DBA · IT Consultant · DevOps Engineer</div>
+            <div class="loc">Guadalajara, Mexico</div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span class="dates">2011–2021</span>
+            <button class="chev" aria-label="Toggle details">▼</button>
+          </div>
+        </div>
+        <div class="job-body">
+          <ul>
+            <li><b>DevOps Engineer (2020–2021):</b> Implemented automation and CI/CD solutions to enhance the application lifecycle.</li>
+            <li><b>IT Consultant (2018–2020):</b> Supported applications running on Oracle Cloud Infrastructure (OCI) and served as Application Subject Matter Expert (SME).</li>
+            <li><b>Database Administrator (2011–2018):</b> Managed infrastructure operations for Oracle databases.</li>
+          </ul>
+          <div class="ach"><b>Achievements:</b> As a DBA, implemented best practices for 99% database availability — redundancy, HA, backups, recovery, and security. As an IT Consultant, built a framework with automated processes enabling non-DBA engineers to monitor and resolve common critical database issues.</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="reveal">
+    <span class="eyebrow">education</span>
+    <h2 class="section-h">Education &amp; Languages</h2>
+    <div class="cards">
+      <div class="card"><div class="t">Post Graduate Program in DevOps</div><div class="m">Caltech University / SimpliLearn · 2021 · <a href="https://success.simplilearn.com/b733c8a6-acd7-4341-8cb1-f28c19836441#acc.96z1LqOs" target="new">cert. 174817574</a></div></div>
+      <div class="card"><div class="t">M.Sc. Database Administration</div><div class="m">Universidad de Guadalajara · 2007</div></div>
+<<<<<<< HEAD
+      <div class="card"><div class="t">B.Sc. Computer Science</div><div class="m">Universidad del Valle de Atemajac · 1996 · <a href="img/cedula1.jpg" target="new" hover="front">cédula 4761084</a> · <a href="img/cedula2.jpg" target="new"  hover="back"><i>[back]</i></a></div></div>
+=======
+      <div class="card"><div class="t">B.Sc. Computer Science</div><div class="m">Universidad del Valle de Atemajac · 1996 · <a href="https://drive.google.com/file/d/1uDbWVS14PzQUYVcuHEYCBCvjRNTGQcZ1/view?usp=drive_link" target="new" hover="front">cédula 4761084</a> · <a href="https://drive.google.com/file/d/1WRMPJcVoKPh9qzcP3MYC-LbDOn8Rx3iT/view?usp=drive_link" target="new"  hover="back"><i>[back]</i></a></div></div>
+>>>>>>> 2da1f3bb3224e5c21519227da24cd5a7e261899a
+      <div class="card"><div class="t">Bachelor of Music — Piano</div><div class="m">Universidad de Guadalajara · 1995 · ID IM/EXA/001/13</div></div>
+      <div class="card"><div class="t">Languages</div><div class="m">Spanish (native) · English (fluent)</div></div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" class="reveal">
+    <span class="eyebrow">awards</span>
+    <h2 class="section-h">Achievements</h2>
+    <div class="ach-list">
+      <div class="ach-item"><div class="ic">★</div><p>In Fiscal Year 2025, received the <b style="color:var(--ink)">Excellence Award</b> for developing a Proof of Concept for multiregional Big Data clusters running on OCI, in collaboration with cross-functional teams.</p></div>
+      <div class="ach-item"><div class="ic">↑</div><p>Achieved <b style="color:var(--ink)">99% system availability</b> in every project by implementing IT best practices.</p></div>
+      <div class="ach-item"><div class="ic">✓</div><p>Successfully completed <b style="color:var(--ink)">all deployments on schedule</b> throughout my career.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="f-links">
+    <a href="mailto:jobs.antonio.salazar@gmail.com">email</a>
+    <a href="tel:+523338154216">phone</a>
+    <a href="https://www.linkedin.com/in/antonio-salazar-Gómez/" target="_blank" rel="noopener">linkedin</a>
+  </div>
+  <div class="small">Antonio Salazar Gómez · DevOps Engineer · Guadalajara, MX</div>
+</footer>
+
+<button class="fab" id="printBtn" aria-label="Print / Save as PDF" title="Print / Save as PDF">⎙</button>
+<button class="fab" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
+
+<script>
+(function(){
+  "use strict";
+  var root=document.documentElement;
+
+  /* ---- Theme ---- */
+  var themeBtn=document.getElementById("themeBtn");
+  function safeGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+  function safeSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+  function applyTheme(t){
+    root.setAttribute("data-theme",t);
+    themeBtn.textContent = t==="dark" ? "☀" : "🌙";
+  }
+  var saved=safeGet("theme");
+  var initial = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark":"light");
+  applyTheme(initial);
+  themeBtn.addEventListener("click",function(){
+    var next = root.getAttribute("data-theme")==="dark" ? "light":"dark";
+    applyTheme(next); safeSet("theme",next);
+  });
+
+  /* ---- Mobile menu ---- */
+  var menuBtn=document.getElementById("menuBtn"), navLinks=document.getElementById("navLinks");
+  menuBtn.addEventListener("click",function(){navLinks.classList.toggle("show");});
+  navLinks.addEventListener("click",function(e){if(e.target.tagName==="A")navLinks.classList.remove("show");});
+
+  /* ---- Skills data + filter ---- */
+  var skills=[
+    {n:"Ansible",c:"devops"},{n:"Docker",c:"devops"},{n:"Git / GitHub",c:"devops"},{n:"GitLab",c:"devops"},
+    {n:"Jenkins",c:"devops"},{n:"Kubernetes",c:"devops"},{n:"Terraform",c:"devops"},{n:"VS Code",c:"devops"},
+    {n:"BASH",c:"lang"},{n:"Python",c:"lang"},{n:"PL/SQL",c:"lang"},{n:"SQL",c:"lang"},
+    {n:"HTML",c:"lang"},{n:"JSON",c:"lang"},{n:"Markdown",c:"lang"},{n:"XML",c:"lang"},
+    {n:"OCI",c:"cloud"},{n:"AWS",c:"cloud"},{n:"Azure",c:"cloud"},
+    {n:"ASM",c:"oracle"},{n:"RAC",c:"oracle"},{n:"Data Guard",c:"oracle"},{n:"RMAN",c:"oracle"},
+    {n:"ADRCI",c:"oracle"},{n:"DG Broker",c:"oracle"},{n:"SQL Developer",c:"oracle"},{n:"SQLcl",c:"oracle"},{n:"SQL*Plus",c:"oracle"},
+    {n:"Grafana",c:"monitor"},{n:"Prometheus",c:"monitor"},{n:"OEM",c:"monitor"},{n:"CloudWatch",c:"monitor"}
+  ];
+  var catLabel={devops:"devops",lang:"lang",cloud:"cloud",oracle:"oracle",monitor:"monitor"};
+  var tagsEl=document.getElementById("tags");
+  skills.forEach(function(s){
+    var d=document.createElement("span");
+    d.className="tag"; d.dataset.cat=s.c;
+    d.innerHTML='<span class="cat">'+catLabel[s.c]+'</span>'+s.n;
+    tagsEl.appendChild(d);
+  });
+  document.getElementById("filterBar").addEventListener("click",function(e){
+    var b=e.target.closest(".filter-btn"); if(!b)return;
+    document.querySelectorAll(".filter-btn").forEach(function(x){x.classList.remove("active");});
+    b.classList.add("active");
+    var cat=b.dataset.cat;
+    document.querySelectorAll(".tag").forEach(function(t){
+      t.classList.toggle("dimmed", !(cat==="all"||t.dataset.cat===cat));
+    });
+  });
+
+  /* ---- Experience collapse ---- */
+  document.querySelectorAll(".job-head").forEach(function(h){
+    h.addEventListener("click",function(){h.closest(".job").classList.toggle("open");});
+  });
+  var expToggle=document.getElementById("expToggle");
+  expToggle.addEventListener("click",function(){
+    var jobs=document.querySelectorAll(".job");
+    var anyClosed=Array.prototype.some.call(jobs,function(j){return !j.classList.contains("open");});
+    jobs.forEach(function(j){j.classList.toggle("open",anyClosed);});
+    expToggle.textContent = anyClosed ? "collapse all" : "expand all";
+  });
+
+  /* ---- Reveal + count-up ---- */
+  var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function countUp(el){
+    var target=+el.dataset.target, suffix=el.dataset.suffix||"", dur=1100, start=null;
+    if(prefersReduced){el.innerHTML=target+'<span class="unit">'+suffix+'</span>';return;}
+    function step(ts){
+      if(!start)start=ts;
+      var p=Math.min((ts-start)/dur,1);
+      var val=Math.round((1-Math.pow(1-p,3))*target);
+      el.innerHTML=val+'<span class="unit">'+suffix+'</span>';
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          en.target.classList.add("in");
+          var num=en.target.querySelector(".num[data-target]");
+          if(num&&!num.dataset.done){num.dataset.done="1";countUp(num);}
+          io.unobserve(en.target);
+        }
+      });
+    },{threshold:.15});
+    document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+  }else{
+    document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in");});
+    document.querySelectorAll(".num[data-target]").forEach(countUp);
+  }
+
+  /* ---- Scroll-spy ---- */
+  var sections=Array.prototype.slice.call(document.querySelectorAll("section[id]"));
+  var navAs=Array.prototype.slice.call(document.querySelectorAll(".nav-links a"));
+  function spy(){
+    var pos=window.scrollY+ (parseInt(getComputedStyle(root).getPropertyValue("--nav-h"))||64) + 40;
+    var current="";
+    sections.forEach(function(s){if(s.offsetTop<=pos)current=s.id;});
+    navAs.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+current);});
+  }
+
+  /* ---- Back to top ---- */
+  var toTop=document.getElementById("toTop");
+  function onScroll(){
+    toTop.classList.toggle("show",window.scrollY>500);
+    spy();
+  }
+  window.addEventListener("scroll",onScroll,{passive:true});
+  onScroll();
+  toTop.addEventListener("click",function(){window.scrollTo({top:0,behavior:prefersReduced?"auto":"smooth"});});
+
+  /* ---- Print ---- */
+  document.getElementById("printBtn").addEventListener("click",function(){window.print();});
+})();
+</script>
+</body>
+</html>
